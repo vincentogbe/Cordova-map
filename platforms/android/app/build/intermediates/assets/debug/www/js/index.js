@@ -34,6 +34,7 @@ var app = {
         document.getElementById('myLocation').addEventListener('click', myLocation, false);
         document.getElementById('distence').addEventListener('click', distence, false);
         document.getElementById('resetPoints').addEventListener('click', resetPoints, false);
+        document.getElementById('directions').addEventListener('click', directions, false);
         document.getElementById('makerOption').addEventListener('click', function makerOption(event){
 
                 if(document.getElementById('markerOptions').style.display == 'block') {
@@ -97,7 +98,7 @@ function doSomething(event) {
                 'lng': longitude
             }
 
-          // alert(points.length);
+          alert(points.length);
 
             if(points.length < 2) {
                 points.push(obj);
@@ -123,7 +124,7 @@ function myLocation(event){
                 'lng': location.latLng.lng
             }
 
-           // alert(points.length);
+           alert(points.length);
 
             if(points.length < 2) {
                 points.push(obj);
@@ -149,5 +150,38 @@ function distence(event) {
 }
 function resetPoints(event){
     points = [];
+}
+function directions(event){
+
+     if(points.length != 2) {
+        alert('You must have 2 markers on the map.');
+    } else {
+        // Now lets get the contents of both:
+        var origin = points[0].lat+","+points[0].lng;
+        var destination = points[1].lat+","+points[1].lng;
+
+        // Now let us make a request to the Google Maps Directions API.
+        var response = JSON.parse(httpGet('https://maps.googleapis.com/maps/api/directions/json?origin='+origin+'&destination='+destination+'&key=AIzaSyCrRaoUly0HstBe7ztiDINeq--p_D6Lhmg'));
+        
+        // Now that we have a response we have to make sense of it.
+        var distance = response.routes[0].legs[0].distance.text;
+        var duration = response.routes[0].legs[0].duration.text;
+        var end_address = response.routes[0].legs[0].end_address;
+        var end_location = response.routes[0].legs[0].end_location;
+        var start_address = response.routes[0].legs[0].start_address;
+        var start_location = response.routes[0].legs[0].start_location;
+
+        var directions_div = document.getElementById('directions_div');
+
+        directions_div.innerHTML = ' ';
+
+        // Now loop through the steps and get the directions
+        for(var i=0; i<response.routes[0].legs[0].steps.length; i++) {
+            directions_div.innerHTML += '<div class="card"><div class="card-body">'+
+            response.routes[0].legs[0].steps[i].html_instructions+' for '+response.routes[0].legs[0].steps[i].distance.text+
+            '<br/>Duration: '+response.routes[0].legs[0].steps[i].duration.text+' By: '+response.routes[0].legs[0].steps[i].travel_mode+
+            '</div></div><br/>'
+        }
+    }
 }
 app.initialize();

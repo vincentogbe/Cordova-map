@@ -37,14 +37,18 @@
     </head>
     <body>
         <div class="app">
-            <center><h1>maps</h1></center>
+            <center><h1>maps</h1><h5>vincent ogbe</h5></center>
+            <hr>
                <div style="width:500px;height:500px" id="map_canvas1">
                 <span class="smallPanel"><button id="myLocation" class="btn btn-primary">My Location</button></span>
-               </div>
+            </div>
                <center>
                 <input id="address"/>
                 <button class="btn btn-primary" id="doSomething">search</button>
                 <br>
+                <button class="btn btn-primary" id="directions">directions</button>
+                <br>
+                <div id="directions_div"></div>
                 <button class="btn btn-primary" id="makerOption">Marker Option</button>
                 <br/>
                 <div id="markerOptions" style="display: none;">
@@ -52,9 +56,12 @@
                     <button class="btn btn-primary" id="distence">distence between markers</button><br/>
                     <button class="btn btn-primary" id="resetPoints" >reset makers</button>
                     
+                   <div id="directions_div"></div>
                 </div>
 
                 </center>
+            
+            </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
