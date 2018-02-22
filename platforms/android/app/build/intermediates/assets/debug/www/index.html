@@ -32,24 +32,25 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>maps</title>
     </head>
     <body>
         <div class="app">
             <center><h1>maps</h1></center>
                <div style="width:500px;height:500px" id="map_canvas1">
-                <span class="smallPanel"><button id="myLocation">My Location</button></span>
+                <span class="smallPanel"><button id="myLocation" class="btn btn-primary">My Location</button></span>
                </div>
                <center>
                 <input id="address"/>
-                <button id="doSomething">search</button>
+                <button class="btn btn-primary" id="doSomething">search</button>
                 <br>
-                <button id="makerOption">Marker Option</button>
+                <button class="btn btn-primary" id="makerOption">Marker Option</button>
                 <br/>
                 <div id="markerOptions" style="display: none;">
 
-                    <button id="distence">distence between markers</button><br/>
-                    <button id="resetPoints">reset makers</button>
+                    <button class="btn btn-primary" id="distence">distence between markers</button><br/>
+                    <button class="btn btn-primary" id="resetPoints" >reset makers</button>
                     
                 </div>
 

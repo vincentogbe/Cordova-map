@@ -97,7 +97,7 @@ function doSomething(event) {
                 'lng': longitude
             }
 
-            alert(points.length);
+          // alert(points.length);
 
             if(points.length < 2) {
                 points.push(obj);
@@ -123,7 +123,7 @@ function myLocation(event){
                 'lng': location.latLng.lng
             }
 
-            alert(points.length);
+           // alert(points.length);
 
             if(points.length < 2) {
                 points.push(obj);

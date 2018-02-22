@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Feb 21 20:09:38 EET 2018
+#Wed Feb 21 22:51:12 EET 2018
 122.file=C\:\\Users\\vincent ogbe\\Desktop\\year 3\\mobile internet programming\\example\\map\\maps\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png
 60.set=ANDROID_RESOURCE
 52.set=ASSET
